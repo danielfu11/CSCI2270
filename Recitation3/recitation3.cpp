@@ -1,3 +1,5 @@
+// Dynamic Memeory Allocation
+// Read text file and store it in dynamically allocated array
 #include <iostream>
 #include <fstream>
 #include <sstream>
