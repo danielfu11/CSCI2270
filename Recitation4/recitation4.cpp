@@ -52,4 +52,6 @@ int main(){
 	p = head;
 	cout << "#" << endl;
 	printNode(p);
+	delete[] p;
+	return 0;
 }
