@@ -87,7 +87,7 @@ void printPath(city * head){
 	}
 	city * temp = head;
 	while (temp != NULL){
-		if(temp->next == NULL){
+		if (temp->next == NULL){
 			cout << temp->cityName;
 			cout << " -> ";
 			cout << "NULL" << endl;
