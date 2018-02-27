@@ -40,8 +40,8 @@ Think about in what order should you destroy.
  void BST:: destroyNode(node *curNode){
      if(root)
      {
-         destroyNode(root->left);
-         destroyNode(root->right);
+         //destroyNode(root->left);
+         //destroyNode(root->right);
          delete root;
          root = nullptr;
      }
@@ -55,6 +55,23 @@ Think about in what order should you destroy.
  bool BST::searchKeyHelper(node* root, int data){
      //TODO: Implement your searching function here.
      // Function will return true if the data is there. Else it will return false.
+    if (root != nullptr){
+        if (data < root->key && root->left != nullptr){
+            return searchKeyHelper(root->left,data);
+        }
+        else if (data > root->key && root->right != nullptr){
+            return searchKeyHelper(root->right,data);
+        }
+        else if (data == root->key) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        return false;
+    }
  }
 /**
 This function will search the data in the tree
@@ -71,8 +88,30 @@ NOTE: root is a private member of BST. As root is a private member of BST class,
 **/
  node* BST:: insertNodeHelper(node* curNode, int data){
      //TODO: Implement the code for insert a node at the tree rooted at curNode.
-
-    return curNode;
+    if (data < curNode->key) {
+        if (curNode->left != nullptr) {
+            return insertNodeHelper(curNode->left, data);
+        }
+        else {
+            curNode->left = createNode(data);
+            curNode->left->parent = curNode;
+            return curNode;
+        }
+    }
+    else if (data > curNode->key) {
+        if (curNode->right != nullptr) {
+            return insertNodeHelper(curNode->right, data);
+        }
+        else {
+            curNode->right = createNode(data);
+            curNode->right->parent = curNode;
+            return curNode;
+        }
+    }
+    else {
+        cout << "item " << data << " already in tree" << endl;
+        return nullptr;
+    }
  }
 
 /**

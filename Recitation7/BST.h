@@ -7,6 +7,7 @@ struct node{
     int key;
     node* left = nullptr;
     node* right = nullptr;
+    node* parent = nullptr;
 };
 
 class BST{
