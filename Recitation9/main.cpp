@@ -20,14 +20,6 @@ int main(){
 		}
 		matrix.push_back(tempv);
 	}
-	/*
-	for (auto row : matrix){
-		for(auto el : row){
-			cout << el << ' ';
-		}
-		std::cout << endl;
-	}
-	*/
 	for (int i = 1; i < 5; i++){
 		city.addVertex(matrix[i][0]);
 	}
